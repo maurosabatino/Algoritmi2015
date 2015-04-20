@@ -5,7 +5,30 @@ version = '1.0'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
+subprojects {
+    apply plugin: "java"
+    repositories {
+        mavenCentral()
+    }
+}
+
+task(runSimple, dependsOn: 'classes', type: JavaExec) {
+
+            main = 'sort.SortTiming'
+            classpath = sourceSets.main.runtimeClasspath
+
+
+}
+
+
+
+        defaultTasks 'runSimple'
+allprojects {
+    task hello << { task -> println "I'm $task.project.name" }
+}
+
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'

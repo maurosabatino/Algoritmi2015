@@ -1,2 +1,3 @@
 rootProject.name = 'Algoritmi 2015'
+include ':eu.maurosabatino'
 
